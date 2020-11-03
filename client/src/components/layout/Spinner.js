@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 
-export default () => {
+const Spinner = () => {
 	return (
 		<Fragment>
 			<div className='lds-ripple'>
@@ -10,3 +10,5 @@ export default () => {
 		</Fragment>
 	);
 };
+
+export default Spinner;
