@@ -21,7 +21,7 @@ const Profile = ({
 
 	return (
 		<Fragment>
-			{profile === null || loading ? (
+			{profile === null ? (
 				<Spinner />
 			) : (
 				<Fragment>
@@ -37,7 +37,7 @@ const Profile = ({
 						)}
 				</Fragment>
 			)}
-			<div class='profile-grid my-1'>
+			<div className='profile-grid my-1'>
 				<ProfileTop profile={profile} />
 				<ProfileAbout profile={profile} />
 				<div className='profile-exp bg-white p-2'>

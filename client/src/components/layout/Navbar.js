@@ -3,18 +3,23 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logout } from '../../actions/auth';
+import classes from './Navbar.module.css';
+import white_logo from '../../assets/images/FirstEmbarkLogoWhite.png';
 
 const Navbar = ({ auth: { isAuthenticated }, logout }) => {
 	const authLinks = (
 		<ul>
 			<li>
-				<Link to='/'>Home</Link>
+				<Link to='/posts'>Home</Link>
 			</li>
 			<li>
 				<Link to='/dashboard'>Dashboard</Link>
 			</li>
 			<li>
 				<Link to='/profiles'>Connections</Link>
+			</li>
+			<li>
+				<Link to='/posts'>Posts</Link>
 			</li>
 			<li>
 				<a onClick={logout} href='#!'>
@@ -36,10 +41,12 @@ const Navbar = ({ auth: { isAuthenticated }, logout }) => {
 		</ul>
 	);
 	return (
-		<nav className='navbar bg-dark'>
-			<h1>
-				<Link to='/'>FirstEmbark</Link>
-			</h1>
+		<nav className={classes.navbar}>
+			<Link to='/'>
+				<div className={classes.navbar_logo_div}>
+					<img style={{ width: '20vw' }} src={white_logo} alt='' />
+				</div>
+			</Link>
 			<Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>
 		</nav>
 	);
